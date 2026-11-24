@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="padrao">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projeto escolar do Colégio Estadual do Paraná: aquecimento da piscina olímpica com energia solar fotovoltaica e bomba de calor.">
+    <meta name="theme-color" content="#123f59">
+    <title>Sol na Piscina · Aquecimento Fotovoltaico — Colégio Estadual do Paraná</title>
+    <link rel="icon" type="image/png" href="assets/img/logo-cep.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Aplica preferências de acessibilidade antes da página aparecer (evita "piscar") -->
+    <script>
+        try {
+            var p = JSON.parse(localStorage.getItem("cep-acess") || "{}");
+            var h = document.documentElement;
+            if (p.tema) h.setAttribute("data-tema", p.tema);
+            if (p.fonte) h.style.setProperty("--escala", p.fonte);
+            if (p.espaco) h.classList.add("a11y-espaco");
+            if (p.links) h.classList.add("a11y-links");
+            if (p.movimento) h.classList.add("a11y-sem-movimento");
+        } catch (e) {}
+    </script>
+</head>
+
+<body>
+
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo principal</a>
+
+    <!-- ============ BARRA DE ACESSIBILIDADE ============ -->
+    <div class="barra-acess" role="region" aria-label="Recursos de acessibilidade">
+        <div class="barra-acess-inner">
+            <span class="barra-acess-titulo" aria-hidden="true">♿ Acessibilidade</span>
+            <div class="grupo" role="group" aria-label="Tamanho do texto">
+                <button type="button" data-acao="fonte-menos" aria-label="Diminuir tamanho do texto">A−</button>
+                <button type="button" data-acao="fonte-reset" aria-label="Tamanho de texto padrão">A</button>
+                <button type="button" data-acao="fonte-mais" aria-label="Aumentar tamanho do texto">A+</button>
+            </div>
+            <button type="button" class="btn-tema" data-acao="tema" aria-pressed="false">
+                <span class="tema-icone" aria-hidden="true">◐</span> <span class="tema-rotulo">Tema preto e branco</span>
+            </button>
+            <button type="button" data-acao="espaco" aria-pressed="false">Espaçar texto</button>
+            <button type="button" data-acao="links" aria-pressed="false">Destacar links</button>
+            <button type="button" data-acao="movimento" aria-pressed="false">Pausar animações</button>
+            <button type="button" data-acao="ler" aria-pressed="false">🔊 Ler página</button>
+            <button type="button" data-acao="reset" class="btn-reset">Restaurar</button>
+        </div>
+    </div>
+
+    <!-- ============ CABEÇALHO ============ -->
+    <header class="cabecalho" id="topo">
+        <a href="#inicio" class="identidade" aria-label="Colégio Estadual do Paraná — ir para o início">
+            <img src="assets/img/logo-cep.png" alt="Brasão do Colégio Estadual do Paraná, 1846" width="56" height="56" class="logo-cep">
+            <span class="identidade-texto">
+                <strong>Colégio Estadual do Paraná</strong>
+                <small>Projeto · Aquecimento Solar Fotovoltaico</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="menu-principal" aria-label="Navegação principal">
+            <a href="#inicio">Início</a>
+            <a href="#fotovoltaico">Fotovoltaico</a>
+            <a href="#video-ia">Vídeo IA</a>
+            <a href="#simulador">Simulador</a>
+            <a href="#sistemas">Comparação</a>
+            <a href="#processo">Processo</a>
+            <a href="#perguntas">Perguntas</a>
+            <a href="#equipe">Equipe</a>
+        </nav>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+
+        <!-- ============ HERO ============ -->
+        <section id="inicio" class="hero" aria-labelledby="titulo-hero">
+            <div class="hero-sol" aria-hidden="true"></div>
+            <div class="hero-conteudo">
+                <span class="pequeno-titulo">PROJETO ESCOLAR · 2026</span>
+                <h1 id="titulo-hero">O Sol aquecendo<br><em>a piscina do Colégio</em></h1>
+                <p>
+                    Como a energia solar fotovoltaica, combinada a uma bomba de calor,
+                    pode manter a piscina olímpica do Colégio Estadual do Paraná aquecida
+                    com eficiência, economia e energia limpa.
+                </p>
+                <div class="hero-botoes">
+                    <a href="#fotovoltaico" class="botao">Entenda o sistema</a>
+                    <a href="#video-ia" class="botao botao-contorno">▶ Assistir ao vídeo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ DESTAQUES ============ -->
+        <section class="destaques" aria-label="Números do projeto">
+            <div class="destaque">
+                <span>1.250 m²</span>
+                <p>Superfície da piscina olímpica (50 × 25 m)</p>
+            </div>
+            <div class="destaque">
+                <span>2,5 mi L</span>
+                <p>De água para manter aquecida</p>
+            </div>
+            <div class="destaque">
+                <span>até 5×</span>
+                <p>Mais calor por kWh com bomba de calor</p>
+            </div>
+            <div class="destaque">
+                <span>≈ 145 kWp</span>
+                <p>Usina solar estimada no simulador</p>
+            </div>
+        </section>
+
+        <!-- ============ SOBRE ============ -->
+        <section id="projeto" class="secao" aria-labelledby="titulo-projeto">
+            <div class="container grade-2">
+                <div>
+                    <div class="titulo-secao alinhado-esq">
+                        <span>Sobre o projeto</span>
+                        <h2 id="titulo-projeto">Por que aquecer com o Sol?</h2>
+                    </div>
+                    <p>
+                        Manter uma piscina olímpica aquecida exige muita energia: são milhões de litros de água
+                        perdendo calor o tempo todo, principalmente pela evaporação na superfície.
+                        Em Curitiba, onde os invernos são frios, esse gasto pesa ainda mais.
+                    </p>
+                    <p>
+                        Nosso projeto investiga uma solução que une duas tecnologias: os <strong>painéis
+                        fotovoltaicos</strong>, que transformam a luz do Sol em eletricidade, e a <strong>bomba
+                        de calor</strong>, que usa essa eletricidade para "puxar" o calor do ar e entregá-lo à água.
+                    </p>
+                    <p>
+                        O resultado é um sistema renovável, silencioso e com baixo custo de operação —
+                        ideal para uma instituição de ensino pública.
+                    </p>
+                </div>
+                <ul class="lista-beneficios" aria-label="Benefícios principais">
+                    <li><span aria-hidden="true">☀️</span><div><strong>Energia limpa</strong><p>Fonte renovável, sem queima de combustível nem emissão local de poluentes.</p></div></li>
+                    <li><span aria-hidden="true">💡</span><div><strong>Conta de luz menor</strong><p>A energia gerada no telhado abate o consumo da rede elétrica.</p></div></li>
+                    <li><span aria-hidden="true">🔁</span><div><strong>Créditos de energia</strong><p>O excedente vai para a rede e vira crédito (Lei 14.300/2022).</p></div></li>
+                    <li><span aria-hidden="true">🛠️</span><div><strong>Pouca manutenção</strong><p>Painéis duram mais de 25 anos e pedem basicamente limpeza periódica.</p></div></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ FOTOVOLTAICO ============ -->
+        <section id="fotovoltaico" class="secao secao-clara" aria-labelledby="titulo-fv">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Tema central</span>
+                    <h2 id="titulo-fv">Como funciona o sistema fotovoltaico</h2>
+                    <p class="subtitulo">Da luz do Sol até a água morna: quatro componentes trabalhando juntos.</p>
+                </div>
+
+                <!-- Diagrama do fluxo -->
+                <figure class="fluxo" aria-labelledby="legenda-fluxo">
+                    <ol class="fluxo-lista">
+                        <li class="fluxo-item">
+                            <div class="fluxo-icone" aria-hidden="true">☀️</div>
+                            <h3>Sol</h3>
+                            <p>A radiação solar chega aos painéis.</p>
+                        </li>
+                        <li class="fluxo-item">
+                            <div class="fluxo-icone" aria-hidden="true">
+                                <svg viewBox="0 0 48 48" width="40" height="40"><rect x="4" y="12" width="40" height="24" rx="2" fill="currentColor" opacity=".18"/><path d="M4 12h40v24H4zM17 12v24M31 12v24M4 24h40" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+                            </div>
+                            <h3>Painéis FV</h3>
+                            <p>Células de silício geram corrente contínua (CC).</p>
+                        </li>
+                        <li class="fluxo-item">
+                            <div class="fluxo-icone" aria-hidden="true">
+                                <svg viewBox="0 0 48 48" width="40" height="40"><rect x="8" y="6" width="32" height="36" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15 20h8M15 17v6" stroke="currentColor" stroke-width="2.4"/><path d="M26 30c2-4 4-4 6 0s4 4 6 0" fill="none" stroke="currentColor" stroke-width="2.4" transform="translate(-6 0)"/></svg>
+                            </div>
+                            <h3>Inversor</h3>
+                            <p>Converte CC em corrente alternada (CA) para a rede do colégio.</p>
+                        </li>
+                        <li class="fluxo-item">
+                            <div class="fluxo-icone" aria-hidden="true">
+                                <svg viewBox="0 0 48 48" width="40" height="40"><rect x="6" y="10" width="36" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="20" cy="24" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M20 16v16M12 24h16M14.5 18.5l11 11M25.5 18.5l-11 11" stroke="currentColor" stroke-width="1.6"/><path d="M33 17v14" stroke="currentColor" stroke-width="2.4"/></svg>
+                            </div>
+                            <h3>Bomba de calor</h3>
+                            <p>Retira calor do ar e transfere para a água.</p>
+                        </li>
+                        <li class="fluxo-item">
+                            <div class="fluxo-icone" aria-hidden="true">🏊</div>
+                            <h3>Piscina</h3>
+                            <p>A água volta aquecida, entre 26 °C e 28 °C.</p>
+                        </li>
+                    </ol>
+                    <figcaption id="legenda-fluxo">Fluxo de energia: Sol → painéis → inversor → bomba de calor → piscina.</figcaption>
+                </figure>
+
+                <div class="cards cards-4">
+                    <article class="card">
+                        <div class="icone" aria-hidden="true">🔆</div>
+                        <h3>Efeito fotovoltaico</h3>
+                        <p>Quando a luz atinge a célula de silício, os fótons "empurram" elétrons e criam uma corrente elétrica — sem peças móveis, sem barulho e sem combustível.</p>
+                    </article>
+                    <article class="card">
+                        <div class="icone" aria-hidden="true">🌡️</div>
+                        <h3>Bomba de calor</h3>
+                        <p>Funciona como um ar-condicionado ao contrário. Para cada 1 kWh de eletricidade, entrega de 4 a 6 kWh de calor à água (o chamado <abbr title="Coeficiente de Performance">COP</abbr>).</p>
+                    </article>
+                    <article class="card">
+                        <div class="icone" aria-hidden="true">🔌</div>
+                        <h3>Conexão à rede</h3>
+                        <p>O sistema é "on-grid": de dia, o excedente vai para a rede da distribuidora e vira créditos usados à noite ou em dias nublados.</p>
+                    </article>
+                    <article class="card">
+                        <div class="icone" aria-hidden="true">🧥</div>
+                        <h3>Capa térmica</h3>
+                        <p>A evaporação é a maior vilã das perdas de calor. Cobrir a piscina fora do horário de uso reduz muito a energia necessária.</p>
+                    </article>
+                </div>
+
+                <aside class="nota-destaque" aria-label="Diferença importante">
+                    <strong>Fotovoltaico ≠ solar térmico.</strong>
+                    O solar térmico aquece a água diretamente em coletores. O fotovoltaico gera
+                    <em>eletricidade</em>, que pode alimentar a bomba de calor, as bombas de circulação,
+                    a iluminação e o restante do colégio — energia útil o ano inteiro, mesmo quando a piscina não precisa.
+                </aside>
+            </div>
+        </section>
+
+        <!-- ============ VÍDEO IA ============ -->
+        <section id="video-ia" class="secao" aria-labelledby="titulo-video-ia">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Vídeo animado</span>
+                    <h2 id="titulo-video-ia">Energia fotovoltaica em 1 minuto</h2>
+                    <p class="subtitulo">Vídeo explicativo produzido com inteligência artificial sobre o sistema proposto.</p>
+                </div>
+
+                <div class="video-container destaque-video">
+                    <video controls preload="metadata" poster="assets/img/poster-video-ia.jpg" aria-describedby="transcricao-ia">
+                        <source src="assets/video/fotovoltaico-ia.mp4" type="video/mp4">
+                        Seu navegador não consegue reproduzir este vídeo.
+                    </video>
+                    <div class="video-legenda">
+                        <span>Aquecimento de piscina com energia solar fotovoltaica</span>
+                        <button type="button" class="btn-narrar" data-alvo="transcricao-ia" aria-pressed="false">🔊 Ouvir narração</button>
+                    </div>
+                </div>
+
+                <details class="transcricao" id="transcricao-ia">
+                    <summary>Transcrição do vídeo (texto acessível)</summary>
+                    <div class="transcricao-texto">
+                        <p>Energia solar fotovoltaica para aquecer a piscina do Colégio Estadual do Paraná.</p>
+                        <p>O efeito fotovoltaico: quando a luz do Sol atinge as células de silício dos painéis, os elétrons se movimentam e geram corrente elétrica contínua.</p>
+                        <p>O caminho da energia: os painéis geram corrente contínua, o inversor transforma em corrente alternada, e a bomba de calor usa essa eletricidade para aquecer a água da piscina.</p>
+                        <p>Por que bomba de calor? Uma resistência elétrica transforma 1 kWh de eletricidade em 1 kWh de calor. A bomba de calor retira calor do ar e entrega até 5 kWh de calor para cada 1 kWh consumido.</p>
+                        <p>O caminho da água: captação, filtragem, aquecimento na bomba de calor e retorno para a piscina, em um ciclo contínuo.</p>
+                        <p>Na piscina olímpica: 1.250 metros quadrados de superfície e cerca de 2,5 milhões de litros de água. Uma estimativa didática aponta cerca de 145 kWp de painéis, ou aproximadamente 265 módulos de 550 watts.</p>
+                        <p>Vantagens: energia limpa e renovável, conta de luz menor, créditos de energia com a distribuidora, vida útil acima de 25 anos e baixa manutenção.</p>
+                        <p>Colégio Estadual do Paraná — Projeto escolar 2026.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ============ SIMULADOR ============ -->
+        <section id="simulador" class="secao secao-clara" aria-labelledby="titulo-sim">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Ferramenta interativa</span>
+                    <h2 id="titulo-sim">Simulador da usina solar</h2>
+                    <p class="subtitulo">Altere os valores e veja quantos painéis seriam necessários para aquecer a piscina.</p>
+                </div>
+
+                <div class="simulador">
+                    <form class="sim-form" id="sim-form" aria-describedby="sim-aviso">
+                        <fieldset>
+                            <legend>Dimensões da piscina</legend>
+                            <div class="campos-3">
+                                <label>Comprimento (m)<input type="number" id="sim-comp" value="50" min="5" max="100" step="1" inputmode="decimal"></label>
+                                <label>Largura (m)<input type="number" id="sim-larg" value="25" min="3" max="50" step="1" inputmode="decimal"></label>
+                                <label>Profundidade média (m)<input type="number" id="sim-prof" value="2" min="0.5" max="5" step="0.1" inputmode="decimal"></label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Condição da piscina</legend>
+                            <label class="sr-only" for="sim-perda">Condição da piscina</label>
+                            <select id="sim-perda">
+                                <option value="1.2">Coberta (ginásio) e com capa térmica</option>
+                                <option value="2" selected>Coberta (ginásio), sem capa térmica</option>
+                                <option value="3">Descoberta, com capa térmica</option>
+                                <option value="5">Descoberta, sem capa térmica</option>
+                            </select>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Equipamentos e clima</legend>
+                            <label for="sim-cop">Eficiência da bomba de calor (COP): <output id="sim-cop-val" for="sim-cop">5,0</output></label>
+                            <input type="range" id="sim-cop" min="3" max="6" step="0.1" value="5">
+                            <label for="sim-hsp">Horas de sol pleno em Curitiba (kWh/m²·dia): <output id="sim-hsp-val" for="sim-hsp">4,3</output></label>
+                            <input type="range" id="sim-hsp" min="3" max="6" step="0.1" value="4.3">
+                            <label>Potência de cada painel (W)
+                                <select id="sim-painel">
+                                    <option value="450">450 W</option>
+                                    <option value="550" selected>550 W</option>
+                                    <option value="600">600 W</option>
+                                    <option value="700">700 W</option>
+                                </select>
+                            </label>
+                        </fieldset>
+                    </form>
+
+                    <div class="sim-resultados" aria-live="polite" aria-atomic="true">
+                        <div class="res res-principal">
+                            <small>Usina solar necessária</small>
+                            <strong id="r-kwp">—</strong>
+                            <span id="r-paineis">—</span>
+                        </div>
+                        <div class="res-grade">
+                            <div class="res"><small>Volume de água</small><strong id="r-vol">—</strong></div>
+                            <div class="res"><small>Energia p/ subir 1 °C</small><strong id="r-1grau">—</strong></div>
+                            <div class="res"><small>Calor perdido por dia</small><strong id="r-termica">—</strong></div>
+                            <div class="res"><small>Área de painéis</small><strong id="r-area">—</strong></div>
+                        </div>
+                        <div class="res-barras" role="img" id="r-barras-desc" aria-label="Comparação de consumo elétrico mensal">
+                            <p class="res-barras-titulo">Consumo elétrico por mês para manter a temperatura</p>
+                            <div class="barra-linha">
+                                <span>Resistência elétrica</span>
+                                <div class="barra"><i id="b-res"></i></div>
+                                <b id="r-res">—</b>
+                            </div>
+                            <div class="barra-linha">
+                                <span>Bomba de calor</span>
+                                <div class="barra"><i id="b-bc" class="bc"></i></div>
+                                <b id="r-bc">—</b>
+                            </div>
+                        </div>
+                        <p class="sim-aviso" id="sim-aviso">
+                            Estimativa didática simplificada (perdas médias diárias, rendimento do sistema de 80%).
+                            Um projeto real exige estudo técnico de engenheiro habilitado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SISTEMAS / COMPARAÇÃO ============ -->
+        <section id="sistemas" class="secao" aria-labelledby="titulo-sistemas">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Alternativas</span>
+                    <h2 id="titulo-sistemas">Comparação entre os sistemas</h2>
+                    <p class="subtitulo">Analisamos as opções mais usadas e por que o fotovoltaico se destacou.</p>
+                </div>
+
+                <div class="cards cards-4">
+                    <article class="card">
+                        <div class="icone" aria-hidden="true">⚡</div>
+                        <h3>Resistência elétrica</h3>
+                        <p>Aquece a água como um chuveiro elétrico.</p>
+                        <ul>
+                            <li class="pro">Instalação simples</li>
+                            <li class="contra">1 kWh de luz = só 1 kWh de calor</li>
+                            <li class="contra">Conta de energia muito alta</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <div class="icone" aria-hidden="true">🔥</div>
+                        <h3>Aquecedor a gás</h3>
+                        <p>Queima gás para produzir calor.</p>
+                        <ul>
+                            <li class="pro">Aquecimento rápido</li>
+                            <li class="contra">Combustível fóssil, emite CO₂</li>
+                            <li class="contra">Custo do gás e manutenção alta</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <div class="icone" aria-hidden="true">🌞</div>
+                        <h3>Solar térmico</h3>
+                        <p>Coletores aquecem a água diretamente.</p>
+                        <ul>
+                            <li class="pro">Renovável e barato de operar</li>
+                            <li class="contra">Muito dependente do clima</li>
+                            <li class="contra">Energia só serve para a piscina</li>
+                        </ul>
+                    </article>
+                    <article class="card card-destaque">
+                        <span class="selo">Recomendado</span>
+                        <div class="icone" aria-hidden="true">🔆</div>
+                        <h3>Fotovoltaico + bomba de calor</h3>
+                        <p>Painéis geram eletricidade que alimenta a bomba de calor.</p>
+                        <ul>
+                            <li class="pro">Renovável e muito eficiente (COP 4–6)</li>
+                            <li class="pro">Excedente vira crédito de energia</li>
+                            <li class="contra">Investimento inicial maior</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="tabela-container" tabindex="0" role="region" aria-label="Tabela comparativa, role horizontalmente se necessário">
+                    <table>
+                        <caption class="sr-only">Comparação entre resistência elétrica, gás, solar térmico e fotovoltaico com bomba de calor</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Característica</th>
+                                <th scope="col">Resistência</th>
+                                <th scope="col">A gás</th>
+                                <th scope="col">Solar térmico</th>
+                                <th scope="col" class="col-destaque">Fotovoltaico + BC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">Fonte de energia</th><td>Rede elétrica</td><td>Gás (GLP/GN)</td><td>Sol (calor)</td><td class="col-destaque">Sol (eletricidade)</td></tr>
+                            <tr><th scope="row">Eficiência</th><td>Baixa (≈ 1×)</td><td>Média (≈ 0,9×)</td><td>Alta</td><td class="col-destaque">Muito alta (4–6×)</td></tr>
+                            <tr><th scope="row">Custo de operação</th><td>Muito alto</td><td>Alto</td><td>Baixo</td><td class="col-destaque">Muito baixo</td></tr>
+                            <tr><th scope="row">Investimento inicial</th><td>Baixo</td><td>Médio</td><td>Médio</td><td class="col-destaque">Alto</td></tr>
+                            <tr><th scope="row">Dependência do clima</th><td>Nenhuma</td><td>Nenhuma</td><td>Alta</td><td class="col-destaque">Baixa (créditos na rede)</td></tr>
+                            <tr><th scope="row">Sustentabilidade</th><td>Média</td><td>Baixa</td><td>Alta</td><td class="col-destaque">Muito alta</td></tr>
+                            <tr><th scope="row">Vida útil típica</th><td>≈ 10 anos</td><td>≈ 10 anos</td><td>≈ 15–20 anos</td><td class="col-destaque">25+ anos (painéis)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PROCESSO ============ -->
+        <section id="processo" class="secao secao-clara" aria-labelledby="titulo-processo">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Passo a passo</span>
+                    <h2 id="titulo-processo">O caminho da água</h2>
+                    <p class="subtitulo">A água circula continuamente entre a piscina e a casa de máquinas.</p>
+                </div>
+
+                <ol class="etapas">
+                    <li class="etapa">
+                        <span aria-hidden="true">01</span>
+                        <h3>Captação</h3>
+                        <p>A motobomba puxa a água da piscina pelos ralos e skimmers.</p>
+                    </li>
+                    <li class="etapa">
+                        <span aria-hidden="true">02</span>
+                        <h3>Filtragem</h3>
+                        <p>O filtro retém impurezas antes de a água chegar ao aquecedor.</p>
+                    </li>
+                    <li class="etapa">
+                        <span aria-hidden="true">03</span>
+                        <h3>Aquecimento</h3>
+                        <p>A bomba de calor, alimentada pela energia solar, transfere calor à água.</p>
+                    </li>
+                    <li class="etapa">
+                        <span aria-hidden="true">04</span>
+                        <h3>Retorno</h3>
+                        <p>A água aquecida volta à piscina pelos bocais de retorno, fechando o ciclo.</p>
+                    </li>
+                </ol>
+
+                <div class="video-container">
+                    <video controls preload="metadata" poster="assets/img/poster-processo.jpg" aria-describedby="transcricao-processo">
+                        <source src="assets/video/processo-aquecimento.mp4" type="video/mp4">
+                        Seu navegador não consegue reproduzir este vídeo.
+                    </video>
+                    <div class="video-legenda">
+                        <span>O caminho da água: como a piscina é aquecida</span>
+                        <button type="button" class="btn-narrar" data-alvo="transcricao-processo" aria-pressed="false">🔊 Ouvir narração</button>
+                    </div>
+                </div>
+
+                <details class="transcricao" id="transcricao-processo">
+                    <summary>Transcrição do vídeo (texto acessível)</summary>
+                    <div class="transcricao-texto">
+                        <p>O caminho da água: como a piscina do colégio é aquecida, passo a passo.</p>
+                        <p>Captação: a motobomba puxa a água da piscina pelos ralos e skimmers.</p>
+                        <p>Filtragem: o filtro retém as impurezas antes de a água chegar ao aquecedor.</p>
+                        <p>Aquecimento: com a energia dos painéis solares, convertida pelo inversor, a bomba de calor tira calor do ar e passa para a água.</p>
+                        <p>Retorno: a água aquecida volta à piscina pelos bocais de retorno e o ciclo recomeça.</p>
+                        <p>O termostato mantém a água entre 26 °C e 28 °C, sem desperdício de energia.</p>
+                        <p>A água circula o dia inteiro e, fora do horário de uso, a capa térmica reduz a evaporação e segura o calor.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ============ PERGUNTAS ============ -->
+        <section id="perguntas" class="secao" aria-labelledby="titulo-perguntas">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Discussão</span>
+                    <h2 id="titulo-perguntas">Perguntas sobre o tema</h2>
+                </div>
+
+                <div class="perguntas">
+                    <details class="pergunta" open>
+                        <summary>1. Qual sistema é mais indicado para uma piscina olímpica como a do Colégio Estadual do Paraná? Por quê?</summary>
+                        <p>Para uma piscina desse porte, a combinação <strong>fotovoltaico + bomba de calor</strong> é a mais indicada.
+                        A bomba de calor entrega de 4 a 6 vezes mais calor do que a energia que consome, e os painéis solares
+                        geram essa energia de forma limpa. Além disso, a eletricidade excedente vira crédito e pode ser usada
+                        em todo o colégio.</p>
+                    </details>
+                    <details class="pergunta">
+                        <summary>2. Quais fatores técnicos precisam ser analisados antes da instalação?</summary>
+                        <p>Volume e área da piscina, temperatura desejada (26 °C a 28 °C), perdas de calor (se é coberta e se usa capa térmica),
+                        área disponível no telhado e sua orientação (no Paraná, o ideal é voltada para o norte), sombreamento,
+                        capacidade da rede elétrica, sistema de circulação existente e as regras da distribuidora para geração distribuída.</p>
+                    </details>
+                    <details class="pergunta">
+                        <summary>3. Entre elétrico, gás e solar, qual tem o melhor custo-benefício para uma escola?</summary>
+                        <p>O fotovoltaico com bomba de calor exige investimento inicial maior, mas tem o menor custo de operação.
+                        Como o gasto mensal cai drasticamente, o investimento tende a se pagar em poucos anos, e os painéis seguem produzindo
+                        por mais de 25 anos. Resistência elétrica e gás são mais baratos de instalar, mas caros todos os meses.</p>
+                    </details>
+                    <details class="pergunta">
+                        <summary>4. Quais cuidados garantem segurança, eficiência e economia?</summary>
+                        <p>Instalação feita por profissional habilitado, com projeto aprovado pela distribuidora; aterramento e proteções elétricas;
+                        limpeza periódica dos painéis; manutenção do filtro e da bomba de calor; uso de capa térmica fora do horário de uso;
+                        e monitoramento da geração pelo aplicativo do inversor para detectar falhas rapidamente.</p>
+                    </details>
+                    <details class="pergunta">
+                        <summary>5. Se o Colégio fosse modernizar o aquecimento hoje, qual solução você recomendaria?</summary>
+                        <p>Recomendaríamos uma usina fotovoltaica conectada à rede, alimentando bombas de calor de alta eficiência,
+                        junto com uma capa térmica para a piscina. Essa solução reduz a conta de energia, diminui emissões,
+                        aproveita os telhados do colégio e ainda serve como laboratório vivo de energia renovável para os alunos.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ VÍDEO RESPOSTAS ============ -->
+        <section class="secao secao-clara" aria-labelledby="titulo-respostas">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Vídeo</span>
+                    <h2 id="titulo-respostas">Respostas em vídeo</h2>
+                    <p class="subtitulo">Vídeo animado produzido com inteligência artificial.</p>
+                </div>
+                <div class="video-container">
+                    <video controls preload="metadata" poster="assets/img/poster-respostas.jpg" aria-describedby="transcricao-respostas">
+                        <source src="assets/video/respostas.mp4" type="video/mp4">
+                        Seu navegador não consegue reproduzir este vídeo.
+                    </video>
+                    <div class="video-legenda">
+                        <span>As 5 perguntas do projeto, respondidas em 1 minuto</span>
+                        <button type="button" class="btn-narrar" data-alvo="transcricao-respostas" aria-pressed="false">🔊 Ouvir narração</button>
+                    </div>
+                </div>
+
+                <details class="transcricao" id="transcricao-respostas">
+                    <summary>Transcrição do vídeo (texto acessível)</summary>
+                    <div class="transcricao-texto">
+                        <p>Perguntas e respostas: cinco perguntas sobre o aquecimento solar da piscina.</p>
+                        <p>1. Qual sistema é mais indicado? Fotovoltaico com bomba de calor: para cada 1 kWh, a bomba de calor entrega cerca de 5 kWh de calor, contra 1 da resistência e 0,9 do gás. O excedente vira crédito para todo o colégio.</p>
+                        <p>2. Quais fatores analisar antes da instalação? Volume e área da piscina, temperatura de 26 a 28 °C, perdas de calor, telhado voltado ao norte, sombreamento, rede elétrica e regras da distribuidora.</p>
+                        <p>3. Qual tem o melhor custo-benefício? O fotovoltaico custa mais no início, mas tem a menor conta todo mês; o investimento se paga em poucos anos e os painéis duram mais de 25 anos.</p>
+                        <p>4. Quais cuidados garantem segurança, eficiência e economia? Instalação por profissional habilitado, projeto aprovado pela distribuidora, aterramento e proteções, limpeza dos painéis, manutenção do filtro e da bomba de calor e monitoramento pelo inversor.</p>
+                        <p>5. O que recomendaríamos? Usina solar ligada à rede, bombas de calor e capa térmica: conta menor, menos emissões e um laboratório vivo de energia renovável para os alunos.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ============ METODOLOGIA ============ -->
+        <section class="secao" aria-labelledby="titulo-metodo">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Projeto</span>
+                    <h2 id="titulo-metodo">Metodologia</h2>
+                </div>
+                <div class="texto-central">
+                    <p>O projeto utiliza a proposta de <strong>Ilha de Racionalidade</strong>, relacionando conhecimentos de diferentes áreas para compreender uma situação concreta: aquecer a piscina do nosso colégio.</p>
+                    <p>Unimos <strong>Física</strong> (efeito fotovoltaico, calor e temperatura), <strong>Química</strong> (semicondutores e combustão),
+                    <strong>Matemática</strong> (cálculos de energia e área), <strong>Geografia</strong> (irradiação solar em Curitiba) e
+                    <strong>Sociologia</strong> (sustentabilidade e uso do dinheiro público).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EQUIPE ============ -->
+        <section id="equipe" class="secao secao-clara" aria-labelledby="titulo-equipe">
+            <div class="container">
+                <div class="titulo-secao">
+                    <span>Participantes</span>
+                    <h2 id="titulo-equipe">Equipe do projeto</h2>
+                </div>
+                <ul class="equipe">
+                    <li class="pessoa"><span aria-hidden="true">M</span><h3>Manoela</h3></li>
+                    <li class="pessoa"><span aria-hidden="true">A</span><h3>Andreas</h3></li>
+                    <li class="pessoa"><span aria-hidden="true">D</span><h3>Daniella</h3></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ RODAPÉ ============ -->
+    <footer class="rodape">
+        <img src="assets/img/logo-cep.png" alt="" width="64" height="64" class="rodape-logo">
+        <h2>Sol na Piscina · Aquecimento Fotovoltaico</h2>
+        <p>Projeto escolar — Colégio Estadual do Paraná · Curitiba</p>
+        <p>Manoela • Andreas • Daniella</p>
+        <small>2026</small>
+    </footer>
+
+    <button id="voltar-topo" type="button" aria-label="Voltar ao topo da página" hidden>↑</button>
+
+    <!-- ============ ASSISTENTE VIRTUAL ============ -->
+    <div id="assistente" class="assistente" role="dialog" aria-modal="false" aria-labelledby="assistente-titulo" hidden>
+        <div class="assistente-cabecalho">
+            <div class="assistente-id">
+                <div class="avatar-mini" aria-hidden="true">☀️</div>
+                <div>
+                    <h2 id="assistente-titulo">Marina · Assistente IA</h2>
+                    <small id="assistente-status">Online · gratuita</small>
+                </div>
+            </div>
+            <div class="assistente-acoes">
+                <button id="assistente-voz" type="button" aria-pressed="true" title="Ligar/desligar voz" aria-label="Resposta em voz ligada">🔊</button>
+                <button id="assistente-fechar" type="button" aria-label="Fechar assistente">×</button>
+            </div>
+        </div>
+        <div id="assistente-mensagens" class="assistente-mensagens" role="log" aria-live="polite" aria-relevant="additions">
+            <div class="msg msg-bot">Olá! Eu sou a Marina ☀️ Posso explicar como a energia solar fotovoltaica aquece a piscina do colégio. Pergunte por texto ou pelo microfone!</div>
+        </div>
+        <div class="sugestoes" aria-label="Sugestões de perguntas">
+            <button type="button">Como funciona o painel solar?</button>
+            <button type="button">O que é bomba de calor?</button>
+            <button type="button">Quantos painéis a piscina precisa?</button>
+        </div>
+        <form class="assistente-input" id="assistente-form">
+            <label for="assistente-campo" class="sr-only">Sua pergunta</label>
+            <input id="assistente-campo" type="text" placeholder="Digite sua pergunta..." autocomplete="off">
+            <button id="assistente-mic" type="button" aria-label="Perguntar por voz" aria-pressed="false">🎙</button>
+            <button id="assistente-enviar" type="submit" aria-label="Enviar pergunta">➤</button>
+        </form>
+    </div>
+
+    <button id="assistente-botao" class="assistente-flutuante" type="button" aria-label="Abrir assistente virtual Marina" aria-controls="assistente" aria-expanded="false">
+        <span aria-hidden="true">☀️</span>
+        <span class="assistente-rotulo">Pergunte à IA</span>
+    </button>
+
+    <!-- VLibras: tradutor gratuito para Libras (Governo Federal) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
+    <script>
+        window.addEventListener("load", function () {
+            try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) {}
+        });
+    </script>
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/acessibilidade.js" defer></script>
+    <script src="assets/js/simulador.js" defer></script>
+    <script src="assets/js/assistente.js" defer></script>
+</body>
+</html>
